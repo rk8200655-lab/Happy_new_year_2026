@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Happy New Year 2026 🎆</title>
+<title>Happy New Year 2026 ❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ff4e8a, #ff9a9e);
   color: white;
   height: 100vh;
   overflow: hidden;
@@ -19,13 +19,13 @@ body {
 }
 
 .card {
-  background: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.18);
   padding: 30px;
-  border-radius: 20px;
+  border-radius: 22px;
   text-align: center;
   max-width: 380px;
   width: 90%;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.35);
   z-index: 2;
 }
 
@@ -41,13 +41,23 @@ h2 {
 
 p {
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.6;
+}
+
+.heart {
+  font-size: 42px;
+  animation: beat 1s infinite;
+}
+
+@keyframes beat {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
 }
 
 input {
   width: 90%;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 12px;
   border: none;
   font-size: 15px;
   margin-top: 15px;
@@ -55,17 +65,17 @@ input {
 
 button {
   margin-top: 12px;
-  padding: 10px 20px;
+  padding: 10px 22px;
   border-radius: 25px;
   border: none;
   font-size: 15px;
   cursor: pointer;
-  background: #ff9800;
-  color: black;
+  background: #ffeb3b;
+  color: #333;
 }
 
 button:hover {
-  background: #ffc107;
+  background: #fff176;
 }
 
 canvas {
@@ -83,16 +93,17 @@ canvas {
 <canvas id="fireworks"></canvas>
 
 <div class="card">
-  <h1>🎉 Happy New Year 2026 🎉</h1>
-  <h2 id="fromText">Warm wishes just for you ✨</h2>
+  <div class="heart">❤️</div>
+
+  <h1>Happy New Year 2026 🎉</h1>
+  <h2 id="fromText">Sending love & good vibes ✨</h2>
 
   <p>
-    May this New Year bring you<br>
-    🌟 Happiness & Peace<br>
-    🌟 Success & Growth<br>
-    🌟 Good Health & Smiles<br><br>
-    May 2026 be full of new hopes,<br>
-    beautiful moments and achievements 🎆
+    May this New Year fill your life with<br>
+    💖 Love & Happiness<br>
+    🌟 Success & Positivity<br>
+    😊 Smiles & Peace<br><br>
+    Wishing you a beautiful and memorable 2026 🎆
   </p>
 
   <input type="text" id="nameInput" placeholder="Enter your name">
@@ -108,7 +119,7 @@ const params = new URLSearchParams(window.location.search);
 const name = params.get("name");
 if (name) {
   document.getElementById("fromText").innerText =
-    "Happy New Year wishes from " + name + " 🎁";
+    "Happy New Year wishes from " + name + " ❤️";
 }
 
 // Create share link
@@ -120,10 +131,10 @@ function createLink() {
   }
   const link = location.origin + location.pathname + "?name=" + encodeURIComponent(yourName);
   document.getElementById("linkBox").innerHTML =
-    `Share this link ❤️<br><a href="${link}" target="_blank" style="color:#ffd54f">${link}</a>`;
+    `Share this link 💌<br><a href="${link}" target="_blank" style="color:white">${link}</a>`;
 }
 
-// Firecracker animation
+// Firecrackers
 const canvas = document.getElementById("fireworks");
 const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
@@ -137,12 +148,12 @@ function firecracker() {
   const x = random(0, canvas.width);
   const y = random(0, canvas.height / 2);
 
-  for (let i = 0; i < 80; i++) {
+  for (let i = 0; i < 90; i++) {
     ctx.fillStyle = `hsl(${Math.random() * 360},100%,60%)`;
     ctx.beginPath();
     ctx.arc(
-      x + random(-100, 100),
-      y + random(-100, 100),
+      x + random(-120, 120),
+      y + random(-120, 120),
       2,
       0,
       Math.PI * 2
@@ -154,7 +165,7 @@ function firecracker() {
 setInterval(() => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   firecracker();
-}, 800);
+}, 900);
 
 window.onresize = () => {
   canvas.width = window.innerWidth;
